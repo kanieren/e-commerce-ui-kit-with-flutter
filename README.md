@@ -16,8 +16,8 @@ You are free to develop that application with backend.
 
 ## ScreenShots
 
-<img src="screenshots/signIn.png" width="200" height="430">
-<img src="screenshots/signUp.png" width="200" height="430">
+<img src="screenshots/SignIn.png" width="200" height="430">
+<img src="screenshots/SignUp.png" width="200" height="430">
 
 <img src="screenshots/Home.png" width="200" height="430">
 <img src="screenshots/Search.png" width="200" height="430">
