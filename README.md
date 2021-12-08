@@ -3,7 +3,7 @@
 
 Flutter representation of a E-commerce App Concept that I found on Figma.
 
-This is an basic UI example and there is no any business logic in codes.
+This is a basic UI example and there is no any business logic in codes.
 You are free to develop that application with backend.
 
 ![Twitter Follow](https://img.shields.io/twitter/follow/kanieren?style=social)
