@@ -1,7 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:workshop/core/extension/string_extensions.dart';
 import 'package:workshop/widgets/big_product_card.dart';
 import 'package:workshop/widgets/menu_tag_list_widget.dart';
 import 'package:workshop/widgets/product_card.dart';
+import 'package:workshop/widgets/search_bar_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -14,12 +18,15 @@ class HomeView extends StatelessWidget {
         toolbarTextStyle: Theme.of(context).textTheme.headline6,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 20.0),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://wikiimg.tojsiabtv.com/wikipedia/commons/thumb/a/a0/Pierre-Person.jpg/1200px-Pierre-Person.jpg'),
+            padding: const EdgeInsets.only(right: 20.0),
+            child: SizedBox(
+              height: 35,
+              width: 35,
+              child: CircleAvatar(
+                child: Image.asset("avatar".toPNG),
+              ),
             ),
           )
         ],
@@ -32,16 +39,13 @@ class HomeView extends StatelessWidget {
             ),
           ],
         ),
-        title: Text(
-          'Audio',
-          style: Theme.of(context).textTheme.headline6,
-        ),
+        title: Image.asset("logo".toPNG),
       ),
       body: Column(
         children: [
           Container(
             padding: const EdgeInsets.all(20.0),
-            height: 98,
+            height: 120,
             width: MediaQuery.of(context).size.width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,29 +62,12 @@ class HomeView extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .bodyText1!
-                      .copyWith(fontSize: 24),
+                      .copyWith(fontSize: 24, fontWeight: FontWeight.bold),
                 )
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: SizedBox(
-              height: 45,
-              child: TextField(
-                textAlignVertical: TextAlignVertical.bottom,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                  prefixIcon: Padding(
-                    padding: EdgeInsets.only(left: 8.0),
-                    child: Icon(Icons.search),
-                  ),
-                  hintText: 'Search headphone',
-                ),
-              ),
-            ),
-          ),
+          SearchBarWidget(),
           const SizedBox(
             height: 25,
           ),
@@ -156,7 +143,7 @@ class HomeView extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         physics: const BouncingScrollPhysics(),
                         child: Row(
-                          children: const [
+                          children: [
                             ProductCard(
                               name: 'TMA-2 HD Wireless',
                               price: 350,
@@ -166,8 +153,7 @@ class HomeView extends StatelessWidget {
                             ProductCard(
                               name: 'CO2 - Cable',
                               price: 25,
-                              imageUrl:
-                                  'https://www.aedsuperstore.com/assets/images/8000-0312.jpg',
+                              image: Image.asset("cable".toPNG),
                             ),
                             ProductCard(
                               name: 'CO2 - Cable Version 2',
