@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 class ProductCard extends StatelessWidget {
   final String name;
   final int price;
-  final String imageUrl;
-  const ProductCard({
-    Key? key,
-    required this.name,
-    required this.price,
-    required this.imageUrl,
-  }) : super(key: key);
+  final String? imageUrl;
+  final Widget? image;
+  const ProductCard(
+      {Key? key,
+      required this.name,
+      required this.price,
+      this.imageUrl,
+      this.image})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +24,12 @@ class ProductCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: Image.network(imageUrl),
-                flex: 2,
-              ),
+              image == null
+                  ? Expanded(
+                      child: Image.network(imageUrl!),
+                      flex: 2,
+                    )
+                  : Expanded(child: image!),
               const SizedBox(
                 height: 30,
               ),
